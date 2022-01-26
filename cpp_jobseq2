@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cmath>
+#include <bits/stdc++.h> 
+#include <climits>
+using namespace std;
+
+bool myCmp(pair <int, int> a, pair <int, int> b){
+
+	return (a.first>b.first);
+  
+}
+
+double jobS(pair <int, int> arr[], int n){
+	sort(arr, arr + n, myCmp);
+	
+	double  res = arr[0].first;
+	int temp=1;
+
+	for(int i = 1; i < n; i++){
+		if(arr[i].second>temp){
+			res += arr[i].first;
+			temp++;
+		}
+	}
+	return res;
+}
+
+int main(){
+// 	pair <int, int> arr[] = {make_pair(70, 4), make_pair(80, 1), make_pair(30, 1),make_pair(100,1)};
+pair <int, int> arr[] = {make_pair(50, 2), make_pair(60, 2), make_pair(20, 3),make_pair(30,3)};
+
+  int n = 4;
+  cout<<jobS(arr, n); 
+  return 0;
+}
